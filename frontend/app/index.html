@@ -11,8 +11,30 @@
     </head>
 
     <body ng-controller="Login">
-        <button ng-click="login()">Login</button>
-        <button ng-click="tweet()">Tweet</button>
+
+        <nav class="navbar navbar-default">
+            <button ng-show="isAuthenticated()" class="btn btn-link pull-right" ng-click="logout()">Logout</button>
+        </nav>
+        <div class="container">
+            <button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
+            
+            <div class="well">
+                <div class="form-group">
+                    <input ng-model="message" class="form-control" placeholder="your message"></input>
+                </div>
+                
+                <div class="input-group">
+                    <input class="form-control" datepicker-popup ng-model="date" is-open="opened" min-date="minDate"></input>
+                    <div class="input-group-btn">
+                        <input class="btn btn-default" ng-click="open($event)"> <i class="glyphicon glyphicon-calendar"></i> </input>
+                    </div>
+                </div>
+                
+                <button class="btn btn-default" ng-click="tweet()">Tweet</button>
+            </div>
+        </div>
+
+
         <!-- vendorInject:js -->
         <!-- endinject -->
 

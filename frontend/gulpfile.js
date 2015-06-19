@@ -8,7 +8,7 @@ var paths = {
     temp: 'temp',
     tempVendor: 'temp/vendor',
     index: 'app/index.html',
-    appSrc: ['app/**/*.js', '!app/index.html'],
+    appSrc: ['app/**/*.*', '!app/index.html'],
     bowerSrc: 'bower_components/**/*'
 }
 gulp.task('default', ['watch']);
