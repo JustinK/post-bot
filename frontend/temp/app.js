@@ -1,5 +1,5 @@
-angular.module('app', ['satellizer', 'ui.bootstrap', 'ui.router'])
-.config(function ($authProvider, $stateProvider){
+angular.module('app', ['satellizer', 'ui.bootstrap', 'ui.router', 'toastr', 'ngAnimate'])
+.config(function ($authProvider, $stateProvider, toastrConfig){
     
     $authProvider.twitter({
         url: '/api/user/login'
@@ -12,9 +12,9 @@ angular.module('app', ['satellizer', 'ui.bootstrap', 'ui.router'])
         controller: 'MyPosts'
     })
     .state('post', {
-        url: '/post',
+        url: '/post?id',
         templateUrl: 'post.html',
         controller: 'Post'
     });
-
+    toastrConfig.positionClass = 'toast-bottom-right';
 });

@@ -11,5 +11,6 @@
         </span>
     </p>
     <timepicker ng-model="time"></timepicker>
-    <button class="btn btn-success pull-right" ng-disabled="!date" ng-click="save()">Tweet</button>
+    <button class="btn btn-success pull-right" ng-disabled="!date" ng-click="save()">Save</button>
+    <button class="btn btn-danger pull-right" ng-show="showDelete" ng-click="delete()">Delete</button>
 </div>
