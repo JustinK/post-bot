@@ -19,7 +19,7 @@ angular.module('app').controller('Post', function ($scope, $http, $location, toa
         $http.get('/api/post/' + id)
         .then(function (post) {
             $scope.message = post.data.message;
-            $scope.date = post.data.datetime;
+            $scope.date = post.data.scheduledTime;
             
             var time = new Date(post.data.scheduledTime);
             $scope.time = time;
@@ -66,14 +66,14 @@ angular.module('app').controller('Post', function ($scope, $http, $location, toa
             message: $scope.message,
             scheduledTime: datetime
         }).then(function () {
-            toastr.info('Post deleted');
+            toastr.info('Post updated');
         });
     }
     
     function deletePost(){
         $http.post('/api/post/destroy/' + id)
         .then(function () {
-            toastr.success('Post updated');
+            toastr.success('Post deleted');
         });
     }
     

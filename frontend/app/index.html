@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html ng-app="app">
+    
     <head>
         <title>Post Bot</title>
-
         <!-- vendorInject:css -->
         <!-- endinject -->
-
         <!-- inject:css -->
         <!-- endinject -->
     </head>
-
+    
     <body ng-controller="Login">
-
         <nav class="navbar navbar-default">
             <div class="container">
-                <button class="btn btn-primary navbar-btn" ui-sref="post">New Post</button>
-                    
-                <button class="btn btn-link navbar-btn" ui-sref="posts">My Posts</button>
-                    
+                <button ng-show="isAuthenticated()" class="btn btn-primary navbar-btn" ui-sref="post">New Post</button>
+                <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn" ui-sref="posts">My Posts</button>
                 <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn pull-right" ng-click="logout()">Logout</button>
             </div>
         </nav>
         <div class="container">
-            <button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
-            <div ui-view=""></div>
+            <div ng-hide="isAuthenticated()" class="col-sm-8 col-md-6 col-md-offset-3 col-sm-offset-2">
+                <div class="jumbotron">
+                    <img height=200 width=200 src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/297px-Twitter_bird_logo_2012.svg.png" class="img-responsive"></img>
+                    <h1>Post Bot</h1>
+                    <p>Schedule all your tweets today!</p>
+                    
+                    <button class="btn btn-primary btn-lg" ng-click="login()">Login</button>
+                </div>
+            </div>
+            <div ng-if="isAuthenticated()" ui-view=""></div>
         </div>
-
-
         <!-- vendorInject:js -->
         <!-- endinject -->
-
         <!-- inject:js -->
         <!-- endinject -->
     </body>

@@ -1,0 +1,8 @@
+body{
+	background: url('squared_metal.png') repeat;
+}
+
+.well, .jumbotron {
+	background-color: rgb(255, 255, 255, 0.08);
+	border-color: rgba(0, 0, 0, 0.3);
+}
