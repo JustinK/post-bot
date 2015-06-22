@@ -18,6 +18,7 @@ module.exports = {
 			
 			Post.create({
 				message: message,
+				isPosted: false,
 				scheduledTime: datetime,
 				owner: owner
 			}).exec(function(err, post){
